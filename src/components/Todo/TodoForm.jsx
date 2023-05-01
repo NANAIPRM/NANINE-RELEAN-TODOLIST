@@ -20,6 +20,7 @@ export function TodoForm({ onSetIsAddmode }) {
   };
 
   const handleChangInput = (e) => {
+    setIsError(false);
     setTask(e.target.value);
   };
   // 2 UI:SECTION
