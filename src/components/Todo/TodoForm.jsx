@@ -3,8 +3,16 @@ import React, { useState } from "react";
 export function TodoForm({ onSetIsAddmode }) {
   // 1 LOGIC
   const [task, setTask] = useState("");
+  const [isError, setIsError] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // validate
+    if (task.trim() === "") {
+      setIsError(true);
+      return;
+    }
+    // set back to normal mode
     console.log("SUBMIT");
   };
   const handleClickCancel = (e) => {
@@ -24,7 +32,7 @@ export function TodoForm({ onSetIsAddmode }) {
         onChange={handleChangInput}
       />
       <div className={styles.todo__form__footer}>
-        <p className={styles.todo__error}>Title is required</p>
+        {isError && <p className={styles.todo__error}>Title is required</p>}
         <div className={styles.todo__form__buttons}>
           <button type="button" onClick={handleClickCancel}>
             Cancel
