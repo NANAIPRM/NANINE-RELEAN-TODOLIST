@@ -10,8 +10,7 @@ export function TodoContent() {
 
       {/* Add todo */}
       <AddTodo />
-      {/* TodoForm  */}
-      <TodoForm />
+
       {/* Todo-List  */}
       <TodoLists />
     </main>
